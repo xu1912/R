@@ -1,0 +1,13 @@
+ggplot(d, aes( set1, set2)) +
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(x = "MPVPLT", y = "NLR", colour="DCI") +
+  guides(fill=FALSE) +
+  theme(text = element_text(size=20), legend.position = c(0.92, 0.9))
+
+ggplot(d_base, aes(x=as.factor(DD_s), y=ceov_d, fill=as.factor(DD_s))) + 
+    geom_boxplot() +
+    scale_x_discrete(name="Discharge Destination", breaks=c("1","2","3"), labels=c("home/rehab", "LTAC/SNF/OU Edmond", "death/hospics")) +
+    scale_y_continuous(name="GBV(CeOV)") + 
+    scale_fill_discrete(labels = c("home/rehab", "LTAC/SNF/OU Edmond", "death/hospics"), name="Discharge Destination") +
+    theme(text = element_text(size=20), legend.position=c(0.54,0.9))
