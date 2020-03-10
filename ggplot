@@ -18,7 +18,8 @@ ggplot(d, aes(x=Duration, y=MC, color=time)) +
     theme_classic()+
     xlab("Duration")+ ylab("MC")+
     scale_colour_discrete(name  ="Treatment", breaks=c("pre", "pst"),labels=c("begin", "end")) +
-    theme(text = element_text(size=20), legend.position=c(0.8,0.85))
+    theme(text = element_text(size=20), axis.text=element_text(size=14),
+		        axis.title=element_text(size=14),legend.position=c(0.8,0.85))
     
 # Multiple plot function
 # From Winston Chang's R cookbook http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_%28ggplot2%29/
