@@ -12,7 +12,13 @@ ggplot(d_base, aes(x=as.factor(DD_s), y=ceov_d, fill=as.factor(DD_s))) +
     scale_fill_discrete(labels = c("home/rehab", "LTAC/SNF/OU Edmond", "death/hospics"), name="Discharge Destination") +
     theme(text = element_text(size=20), legend.position=c(0.54,0.9))
     
-    
+ggplot(d, aes(x=Duration, y=MC, color=time)) + 
+    geom_point()+
+    geom_smooth(method=lm, se=FALSE, fullrange=TRUE)+
+    theme_classic()+
+    xlab("Duration")+ ylab("MC")+
+    scale_colour_discrete(name  ="Treatment", breaks=c("pre", "pst"),labels=c("begin", "end")) +
+    theme(text = element_text(size=20), legend.position=c(0.8,0.85))
     
 # Multiple plot function
 # From Winston Chang's R cookbook http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_%28ggplot2%29/
