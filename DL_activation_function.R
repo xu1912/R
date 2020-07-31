@@ -1,3 +1,4 @@
+library(ggplot2)
 x=seq(-10,10,by=0.05)
 alpha=1.67326324
 lambda=1.05070098
