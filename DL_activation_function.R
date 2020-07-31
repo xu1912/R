@@ -1,4 +1,5 @@
-x=seq(-100,100)
+library(ggplot2)
+x=seq(-10,10,by=0.05)
 alpha=1.67326324
 lambda=1.05070098
 y=x
@@ -11,9 +12,6 @@ if(x[i]>0){
 }
 df1=data.frame(x,y,gp="SELU")
 
-
-x=seq(-100,100)
-y=x
 for(i in 1:length(x)){
 if(x[i]>0){
 	y[i]=x[i]
