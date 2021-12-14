@@ -21,7 +21,7 @@ label(d$AIS.Training_pvalue)="AIS Training"
 
 my.render.cont <- function(x) {
     with(stats.apply.rounding(stats.default(x), digits=2), c("",
-        "Mean (SD)"=sprintf("%s (&plusmn; %s)", MEAN, SD), "Median [Q1, Q3]"=sprintf("%s [%s , %s]", MEDIAN, q25,q75)))
+        "Mean (SD)"=sprintf("%s (&plusmn; %s)", MEAN, SD), "Median [Q1, Q3]"=sprintf("%s [%s, %s]", MEDIAN, q25,q75)))
 }
 
 table1(~Age + Sex + PageHour + SystemsCategory + Neuro.Experience + Days.since.admit + AIS.Training + DM + HTN + CAD + Afib + FocalvsNon.focalsymptoms +
