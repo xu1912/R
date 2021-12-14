@@ -34,6 +34,7 @@ rndr <- function(x, name, ...) {
         s <- rep("", length(render.default(x=y, name=name, ...)))
         if (is.numeric(y)) {
             p <- t.test(y ~ d$AIS.Training_pvalue)$p.value
+	    p = summary(aov(y ~ droplevels(d$TYPE_pvalue)))[[1]][1,5]
         } else {
             p <- chisq.test(table(y, droplevels(d$AIS.Training_pvalue)))$p.value
         }
