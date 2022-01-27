@@ -1,0 +1,25 @@
+library(xlsx)
+library(lme4)
+library(lmerTest)
+library(emmeans)
+d=read.xlsx("in vivo igfbp2 data.xlsx", sheetIndex=2, header=T)
+d$group=factor(d$group)
+d$group=relevel(d$group, ref="IGFBP2siRNA-AuroLPs")
+d$group=relevel(d$group, ref="Control")
+
+fit=lmer(tumor_volume~days*group+(1|id), data=d)
+summary(fit)
+(ls_means(fit))
+ls_means(fit,which=c("days"))
+
+emmeans(fit, pairwise ~ group|days, at=list(days=c(5)))
+
+dw=read.xlsx("in vivo igfbp2 data.xlsx", sheetIndex=3, header=T)
+
+dw$group=factor(dw$group)
+dw$group=relevel(dw$group, ref="IGFBP2siRNA-AuroLPs")
+dw$group=relevel(dw$group, ref="Untreated Control")
+fit2=aov(weight~group, data=dw)
+summary(fit2)
+TukeyHSD(fit2, conf.level=.95)
+emmeans(fit2,~group)
