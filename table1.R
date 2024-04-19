@@ -73,9 +73,11 @@ my.render.cont <- function(x) {
 
 ##Define the group/column variable in Table 1. 
 d$Group=factor(d$Treatment, levels=c("Tr1", "Tr2", "Tr3"), labels=c("Tr1", "Tr2", "Tr3"))
+d$Group=factor(d$AIS.Training, levels=c("N", "Y"), labels=c("N", "Y"))
 
 ##Define the group/column variable in Table 1, when a p-value column is needed.
 d$Group_pvalue=factor(d$Treatment, levels=c("Tr1", "Tr2", "Tr3", "P-value"), labels=c("Tr1", "Tr2", "Tr3", "P-value"))
+d$Group_pvalue=factor(d$AIS.Training, levels=c("N", "Y", "P-value"), labels=c("N", "Y", "P-value"))
 
 ##This is the Table 1 working function. No p-value/comparion among column variable.
 table1(~Age + Sex + DM + HTN + CAD + Afib + BMI +
@@ -84,5 +86,5 @@ table1(~Age + Sex + DM + HTN + CAD + Afib + BMI +
 ##This is the Table 1 working function, with p-value/comparion among column variable.
 table1(~Age + Sex + DM + HTN + CAD + Afib + BMI +
 		Dyslipidemia + Current.Smoking | Group_pvalue, data=d, droplevels=F,
-		render.continuous=my.render.cont, render.strat=rndr.strat, overall=T, render=rndr)
+		render.continuous=my.render.cont, render.strat=rndr.strat, overall="Total", render=rndr)
 
