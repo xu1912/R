@@ -81,7 +81,7 @@ d$Group_pvalue=factor(d$AIS.Training, levels=c("N", "Y", "P-value"), labels=c("N
 
 ##This is the Table 1 working function. No p-value/comparion among column variable.
 table1(~Age + Sex + DM + HTN + CAD + Afib + BMI +
-		Dyslipidemia + Current.Smoking, data=d, render.continuous=my.render.cont)
+		Dyslipidemia + Current.Smoking, data=d, overall="Total", render.continuous=my.render.cont)
 
 ##This is the Table 1 working function, with p-value/comparion among column variable.
 table1(~Age + Sex + DM + HTN + CAD + Afib + BMI +
